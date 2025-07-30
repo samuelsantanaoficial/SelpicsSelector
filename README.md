@@ -1,16 +1,34 @@
 # Selpics Selector
 
-Script para **linux** que separa fotos selecionadas pelo site [Selpics](https://selpics.youfocus.com.br/selecao/) automaticamente.
+Script para **Linux** que separa automaticamente as fotos selecionadas pelo site [Selpics](https://selpics.youfocus.com.br/selecao/).
 
-## Como usar:
-1. Baixe o script [Selpics Selector]() e mova para a mesma pasta onde estão todas as fotos.
+## ✅ Funcionalidade
+
+Este script lê o arquivo de seleção `.selpics` exportado pelo site e copia para uma nova pasta apenas as fotos escolhidas.
+
+## 📁 Como usar
+
+1. **Baixe o script [`selpics.sh`](#)** e mova para a pasta onde estão todas as fotos originais.
+
+2. Acesse o site [Selpics](https://selpics.youfocus.com.br/selecao/) e, após finalizar a seleção, clique em **“Baixar seleção”** para obter o arquivo `.selpics`.
 
 <img width="319" height="302" alt="image" src="https://github.com/user-attachments/assets/6df1eb23-5fbb-4045-93a3-6e31deceb7eb" />
 
-2. No site [Selpics](https://selpics.youfocus.com.br/selecao/) baixe o arquivo de seleção no formato `.selpics`, e mova para a pasta onde estão todas as fotos.
-3. Na pasta onde estão todas as fotos, o script, e o arquivo de seleção, execute esse comando: 
+3. Mova esse arquivo `.selpics` para a mesma pasta das fotos e do script.
+
+4. Execute o script no terminal com o nome do arquivo de seleção:
+
 ```bash
-./selpicsselector.sh arquivo.selpics
+./selpics.sh 'nome do arquivo.selpics'
 ```
-> NOTA: substitua o `arquivo.selpics` pelo nome do seu arquivo de seleção.
-4. Na pasta onde estão todas as fotos, vai ser criada uma pasta contendo somente as fotos selecionadas.
+
+> ⚠️ Observações:
+>
+> * Substitua `'nome do arquivo.selpics'` pelo nome real do seu arquivo.
+> * As aspas simples são **obrigatórias** apenas se o nome tiver espaços.
+
+5. O script criará uma nova pasta contendo apenas as fotos selecionadas.
+
+## 📂 Resultado
+
+Após a execução, será criada uma pasta com o nome baseado no arquivo `.selpics`, contendo somente os arquivos de imagem selecionados.
