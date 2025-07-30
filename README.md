@@ -8,7 +8,7 @@ Este script lê o arquivo de seleção `.selpics` exportado pelo site e copia pa
 
 ## 📁 Como usar
 
-1. **Baixe o script <a href=https://raw.githubusercontent.com/samuelsantanaoficial/SelpicsSelector/main/selpics.sh download>selpics.sh</a>** e mova para a pasta onde estão todas as fotos originais.
+1. **Baixe o script [selpics.sh](https://github.com/samuelsantanaoficial/SelpicsSelector/releases/latest/download/selpics.sh)** e mova para a pasta onde estão todas as fotos originais.
 
 2. Acesse o site [Selpics](https://selpics.youfocus.com.br/selecao/) e, após finalizar a seleção, clique em **“Baixar seleção”** para obter o arquivo `.selpics`.
 
