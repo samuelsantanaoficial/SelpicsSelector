@@ -16,7 +16,13 @@ Este script lê o arquivo de seleção `.selpics` exportado pelo site e copia pa
 
 3. Mova esse arquivo `.selpics` para a mesma pasta das fotos e do script.
 
-4. Execute o script no terminal com o nome do arquivo de seleção:
+4. Permissão de execução no script.
+
+```bash
+chmod +x selpics.sh
+```
+
+5. Execute o script no terminal com o nome do arquivo de seleção:
 
 ```bash
 ./selpics.sh 'nome do arquivo.selpics'
@@ -26,6 +32,7 @@ Este script lê o arquivo de seleção `.selpics` exportado pelo site e copia pa
 >
 > * Substitua `'nome do arquivo.selpics'` pelo nome real do seu arquivo.
 > * As aspas simples são **obrigatórias** apenas se o nome tiver espaços.
+> * O terminal deve esta na mesma pasta com as fotos, o script, e o arquivod e seleção.
 
 5. O script criará uma nova pasta contendo apenas as fotos selecionadas.
 
