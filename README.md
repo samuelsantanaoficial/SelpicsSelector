@@ -8,33 +8,45 @@ Este script lê o arquivo de seleção `.selpics` exportado pelo site e copia pa
 
 ## 📁 Como usar
 
-1. **Baixe o script [selpics.sh](https://github.com/samuelsantanaoficial/SelpicsSelector/releases/latest/download/selpics.sh)** e mova para a pasta onde estão todas as fotos originais.
+1. **Baixe o script [selpics.sh](https://github.com/samuelsantanaoficial/SelpicsSelector/releases/latest/download/selpics.sh)**.
 
-2. Acesse o site [Selpics](https://selpics.youfocus.com.br/selecao/) e, após finalizar a seleção, clique em **“Baixar seleção”** para obter o arquivo `.selpics`.
-
-<img width="319" height="302" alt="image" src="https://github.com/user-attachments/assets/6df1eb23-5fbb-4045-93a3-6e31deceb7eb" />
-
-3. Mova esse arquivo `.selpics` para a mesma pasta das fotos e do script.
-
-4. Permissão de execução no script.
+2. Abra o terminal dentro da pasta onde você baixou o script e mova o script para a pasta `/usr/local/bin/`.
 
 ```bash
-chmod +x selpics.sh
+cd ~/Downloads/
 ```
+
+```bash
+sudo mv selpics.sh /usr/local/bin/selpics
+```
+
+3. Dê permissão de execução ao script _(uma única vez)_.
+```bash
+chmod +x /usr/local/bin/selpics
+```
+
+4. Acesse o site [Selpics](https://selpics.youfocus.com.br/selecao/) e, após finalizar a seleção, clique em **“Baixar seleção”** para obter o arquivo `.selpics`.
+
+<img width="319" height="302" alt="image" src="https://github.com/user-attachments/assets/6df1eb23-5fbb-4045-93a3-6e31deceb7eb" />
 
 5. Execute o script no terminal com o nome do arquivo de seleção:
 
 ```bash
-./selpics.sh 'nome do arquivo.selpics'
+cd ~/Documentos/DCIM/
+```
+
+```bash
+selpics 'nome do arquivo.selpics'
 ```
 
 > ⚠️ Observações:
 >
 > * Substitua `'nome do arquivo.selpics'` pelo nome real do seu arquivo.
 > * As aspas simples são **obrigatórias** apenas se o nome tiver espaços.
-> * O terminal deve esta na mesma pasta com as fotos, o script, e o arquivod e seleção.
+> * O terminal deve esta na mesma pasta com as fotos e o arquivo de seleção.
+> * O script precisa que o `zip` esteja instalado: `sudo apt install zip` ou `sudo pacman -S zip`.
 
-5. O script criará uma nova pasta contendo apenas as fotos selecionadas.
+6. O script criará um zip contendo apenas as fotos selecionadas.
 
 ## 📂 Resultado
 
