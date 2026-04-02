@@ -2,32 +2,62 @@
 
 # Verifica se o arquivo de texto foi passado como argumento
 if [ $# -ne 1 ]; then
-    echo "Uso: $0 <arquivo_de_nomes.txt>"
+    echo "Uso: selpics <arquivo_de_nomes.selpics>"
     exit 1
 fi
 
-# Define variáveis
+# --- CORREÇÃO: Definir a variável arquivo_txt PRIMEIRO ---
 arquivo_txt="$1"
-pasta_destino="selecionadas"
 
-# Verifica se o arquivo .txt existe
+# Verifica se o arquivo existe (boa prática verificar logo no início)
 if [ ! -f "$arquivo_txt" ]; then
     echo "Erro: O arquivo $arquivo_txt não foi encontrado."
     exit 1
 fi
 
-# Cria a pasta "selecionadas" caso não exista
+# 1. Pega apenas o nome do arquivo (remove caminhos como ../ se houver)
+nome_base=$(basename "$arquivo_txt")
+
+# 2. Remove a extensão (tudo depois do último ponto)
+nome_sem_extensao="${nome_base%.*}"
+
+# Define a pasta de destino com o nome do arquivo (sem extensão)
+pasta_destino="${nome_sem_extensao}"
+
+# Cria a pasta caso não exista
 mkdir -p "$pasta_destino"
 
-# Processa cada linha do arquivo .txt
+# Processa cada linha do arquivo
+echo "Lendo arquivo: $arquivo_txt"
+echo "Destino: $pasta_destino/"
+
 while IFS= read -r nome_foto || [[ -n "$nome_foto" ]]; do
+    # Remove quebra de linha do Windows (\r) para evitar erros
+    nome_foto=$(echo "$nome_foto" | tr -d '\r')
+
     if [ -f "$nome_foto" ]; then
         cp "$nome_foto" "$pasta_destino/"
-        echo "Copiando: $nome_foto para $pasta_destino/"
     else
-        echo "Aviso: Arquivo $nome_foto não encontrado, ignorando."
+        if [ ! -z "$nome_foto" ]; then
+            echo "Aviso: Arquivo '$nome_foto' não encontrado."
+        fi
     fi
 done < "$arquivo_txt"
 
-echo "Processo concluído. Verifique a pasta '$pasta_destino'."
+# --- LÓGICA DO ZIP ---
 
+# 3. Define o nome do zip igual ao nome da pasta/arquivo de seleção
+nome_zip="${nome_sem_extensao}.zip"
+
+echo "------------------------------------------------"
+echo "Compactando para: $nome_zip"
+
+if command -v zip &> /dev/null; then
+    # Cria o zip com o conteúdo da pasta
+    zip -r "$nome_zip" "$pasta_destino"
+
+    echo "------------------------------------------------"
+    echo "Concluído! Zip criado: $nome_zip"
+else
+    echo "Erro: Comando 'zip' não encontrado. As fotos estão na pasta '$pasta_destino'."
+fi
