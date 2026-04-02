@@ -47,7 +47,3 @@ selpics 'nome do arquivo.selpics'
 > * O script precisa que o `zip` esteja instalado: `sudo apt install zip` ou `sudo pacman -S zip`.
 
 6. O script criará um zip contendo apenas as fotos selecionadas.
-
-## 📂 Resultado
-
-Após a execução, será criada uma pasta com o nome baseado no arquivo `.selpics`, contendo somente os arquivos de imagem selecionados.
